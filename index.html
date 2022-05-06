@@ -5,13 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="login-form">
-      <input type="text" placeholder="what's your name?" />
-      <button>Log In</button>
-      <script src="app.js"></script>
-    </div>
+    <form class="login-form">
+      <input
+        required
+        maxlength="15"
+        type="text"
+        placeholder="what's your name?"
+      />
+      <button>Log in</button>
+    </form>
+    <!-- button을 누르거나 type이 submit인 input을 클릭하면, 작성한 from 이 submit 된다 -->
+    <!-- form이 submit 되면 웹사이트는 새로고침된다. -->
+    <script src="app.js"></script>
   </body>
 </html>
