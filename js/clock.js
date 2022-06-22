@@ -1,16 +1,19 @@
 const clock = document.querySelector("#clock");
 
-// intervals: 주기적으로 발생하는 event
 function getClock() {
   const date = new Date();
-  const hours = date.getHours().toString().padStart(2, "0");
-  const minutes = date.getMinutes().toString().padStart(2, "0");
-  const seconds = date.getSeconds().toString().padStart(2, "0");
+  const hours = String(date.getHours()).padStart(2, "0");
+  // date.getHours()값을 string으로 변형. 자리수가 0 이하면 0 추가
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  const seconds = String(date.getSeconds()).padStart(2, "0");
   //   console.log(`${hours}:${minutes}:${seconds}`);
   clock.innerHTML = `${hours}:${minutes}:${seconds}`;
+  // console.log(date.getSeconds());
 }
 
-setInterval(getClock, 1000);
+setInterval(getClock, 5000);
+// intervals: 주기적으로 발생하는 event
+//  (실행하려는 함수, ms)
 
 getClock();
 
