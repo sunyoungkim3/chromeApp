@@ -3,12 +3,15 @@ const toDoForm = document.getElementById("todo-form");
 const toDoInput = document.querySelector("#todo-form input");
 const toDoList = document.getElementById("todo-list");
 
+const TODOS_KEY = "todos";
+
 const toDos = [];
 
 // 2. form 이 submit 되었을 때, li 저장
 
+// JSON.stringify(toDos): array를 단순한 string 형식(["1","2","3","4","5"])으로 변경해줌
 function saveTodos() {
-  localStorage.setItem("todos", JSON.stringify(toDos));
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
 // Todo를 삭제하는 func
@@ -45,4 +48,15 @@ function handleToDoSubmit(event) {
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
 
+// function sayHello(item) {
+//   console.log("this is the turn of", item);
+// }
+
+const savedToDos = localStorage.getItem(TODOS_KEY);
+console.log(savedToDos);
+
+if (savedToDos) {
+  const parsedToDos = JSON.parse(savedToDos);
+  parsedToDos.forEach((item) => console.log("this is the turn of", item));
+}
 // TODK: list 저장. list 삭제 버튼
