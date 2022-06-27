@@ -5,7 +5,7 @@ const toDoList = document.getElementById("todo-list");
 
 const TODOS_KEY = "todos";
 
-const toDos = [];
+let toDos = [];
 
 // 2. form 이 submit 되었을 때, li 저장
 
@@ -57,6 +57,8 @@ console.log(savedToDos);
 
 if (savedToDos) {
   const parsedToDos = JSON.parse(savedToDos);
-  parsedToDos.forEach((item) => console.log("this is the turn of", item));
+  console.log(typeof parsedToDos);
+  toDos = parsedToDos;
+  parsedToDos.forEach(paintTodo);
 }
 // TODK: list 저장. list 삭제 버튼
